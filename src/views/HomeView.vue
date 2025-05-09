@@ -50,7 +50,8 @@ export default {
   },
   async created() {
     try {
-      const response = await fetch("/data.json");
+      const baseURL = window.location.origin + "/ix-DMSDX/plugin/de.elo.ix.plugin.proxy/wf/apps/app/master.hierarchy.documentDashboard";
+      const response = await fetch(`${baseURL}/data.json`);
       const rawTables = await response.json();
       console.log(rawTables);
       this.tables = Array.isArray(rawTables)
