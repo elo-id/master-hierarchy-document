@@ -1,0 +1,282 @@
+[
+  {
+    "title": "Engineering Document",
+    "data": [
+      {
+        "documentType": "Engineering Specification",
+        "department": "MNT",
+        "plant": "",
+        "area": "",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "Engineering Specification",
+        "department": "MCV",
+        "plant": "",
+        "area": "",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "Engineering Specification",
+        "department": "MRT",
+        "plant": "",
+        "area": "",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "Engineering Specification",
+        "department": "INS",
+        "plant": "",
+        "area": "",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "Engineering Specification",
+        "department": "ELC",
+        "plant": "",
+        "area": "",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "Maintenance Manual",
+        "department": "MLT",
+        "plant": "",
+        "area": "",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "Maintenance Manual",
+        "department": "MCV",
+        "plant": "",
+        "area": "",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "Maintenance Manual",
+        "department": "MRT",
+        "plant": "",
+        "area": "",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "Maintenance Manual",
+        "department": "INS",
+        "plant": "",
+        "area": "",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "Maintenance Manual",
+        "department": "ELC",
+        "plant": "",
+        "area": "",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "Engineering Specification",
+        "department": "MNT",
+        "plant": "",
+        "area": "",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "Engineering Specification",
+        "department": "MCV",
+        "plant": "",
+        "area": "",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "Engineering Specification",
+        "department": "MRT",
+        "plant": "",
+        "area": "",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "Engineering Specification",
+        "department": "INS",
+        "plant": "",
+        "area": "",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "Engineering Specification",
+        "department": "ELC",
+        "plant": "",
+        "area": "",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      }
+    ]
+  },
+  {
+    "title": "Plant Document",
+    "data": [
+      {
+        "documentType": "PID",
+        "department": "ASC",
+        "plant": "CA-1",
+        "area": "1100",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "PID",
+        "department": "ASC",
+        "plant": "CA-1",
+        "area": "1300",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "PID",
+        "department": "ASC",
+        "plant": "CA-2",
+        "area": "1400",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "PID",
+        "department": "ASC",
+        "plant": "CA-2",
+        "area": "1500",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "PID",
+        "department": "ASC",
+        "plant": "CA-3",
+        "area": "1600",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "PID",
+        "department": "ASC",
+        "plant": "CB-1",
+        "area": "1100",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "PID",
+        "department": "ASC",
+        "plant": "CB-1",
+        "area": "1300",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "PID",
+        "department": "ASC",
+        "plant": "CB-2",
+        "area": "1400",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "PID",
+        "department": "ASC",
+        "plant": "CB-2",
+        "area": "1500",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "PID",
+        "department": "ASC",
+        "plant": "CB-3",
+        "area": "1600",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "DIP",
+        "department": "DESC",
+        "plant": "CA-3",
+        "area": "1700",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "DIP",
+        "department": "DESC",
+        "plant": "CA-4",
+        "area": "1800",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "DIP",
+        "department": "DESC",
+        "plant": "CA-4",
+        "area": "1900",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "DIP",
+        "department": "DESC",
+        "plant": "CA-5",
+        "area": "A700",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      },
+      {
+        "documentType": "DIP",
+        "department": "DESC",
+        "plant": "CA-5",
+        "area": "B200",
+        "discipline": "",
+        "equipmentType": "",
+        "equipmentTypeDetail": ""
+      }
+    ]  
+  }
+]
