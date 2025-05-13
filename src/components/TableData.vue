@@ -30,7 +30,7 @@
           <input
             v-model="searchQuery"
             type="text"
-            placeholder="🔍︎ Search Document"
+            placeholder="⌕ Search Document"
             class="search-input"
             @input="applySearchFilter"
           />
@@ -52,15 +52,15 @@
         This action will delete the<br />selected record!
       </div>
       <div class="alert-modal-buttons">
-        <button class="alert-modal-button" @click="() => proceedDelete()">
-          <h1 class="alert-modal-button-icon">🗹</h1>
-          <h1 class="alert-modal-button-sep">|</h1>
-          Proceed
+        <button class="alert-modal-button" @click="proceedDelete">
+          <span class="alert-modal-button-icon">☑</span>
+          <span class="alert-modal-button-sep">|</span>
+          <span>Proceed</span>
         </button>
         <button class="alert-modal-button" @click="cancelDelete">
-          <h1 class="alert-modal-button-icon">☒</h1>
-          <h1 class="alert-modal-button-sep">|</h1>
-          Cancel
+          <span class="alert-modal-button-icon">☒</span>
+          <span class="alert-modal-button-sep">|</span>
+          <span>Cancel</span>
         </button>
       </div>
     </div>
@@ -72,14 +72,14 @@
       </div>
       <div class="alert-modal-buttons">
         <button class="alert-modal-button" @click="removeRow(row)">
-          <h1 class="alert-modal-button-icon">🗹</h1>
-          <h1 class="alert-modal-button-sep">|</h1>
-          Proceed
+          <span class="alert-modal-button-icon">☑</span>
+          <span class="alert-modal-button-sep">|</span>
+          <span>Proceed</span>
         </button>
         <button class="alert-modal-button" @click="cancelDelete">
-          <h1 class="alert-modal-button-icon">☒</h1>
-          <h1 class="alert-modal-button-sep">|</h1>
-          Cancel
+          <span class="alert-modal-button-icon">☒</span>
+          <span class="alert-modal-button-sep">|</span>
+          <span>Cancel</span>
         </button>
       </div>
     </div>
@@ -152,7 +152,13 @@
         <form @submit.prevent="findAndReplace">
           <div class="input-group">
             <label>Find:</label>
-            <input v-model="findQuery" placeholder="Find" required />
+            <!-- <input v-model="findQuery" placeholder="Find" required /> -->
+            <input
+              v-model="findQuery"
+              placeholder="Find"
+              required
+              @input="updateMatches(findQuery)"
+            />
           </div>
           <div class="input-group">
             <label>Replace With:</label>
@@ -310,13 +316,18 @@
                   getMatchIndex((currentPage - 1) * rowsPerPage + index, key)
                 "
                 :class="{
-                  highlight: isCurrentMatches(
+                  highlight: isMatched(
                     (currentPage - 1) * rowsPerPage + index,
                     key
                   ),
                 }"
               >
-                {{ value }}
+                <!-- {{ value }} -->
+                <input
+                  v-model="paginatedTableData[index][key]"
+                  class="editable-cell"
+                  @blur="saveEdit(index, key)"
+                />
               </td>
               <td>
                 <button @click="showDeleteModal(row)" class="action-button">
@@ -463,13 +474,13 @@ export default {
       this.isEditingTitle = false;
     },
     proceedDelete() {
-      this.isTableDeleted = true;
       this.isDeleteTableModalVisible = false;
       this.deleteSuccessMessage = true;
 
       setTimeout(() => {
+        this.isTableDeleted = true;
         this.deleteSuccessMessage = false;
-      }, 3000);
+      }, 2000);
     },
     cancelDelete() {
       this.isDeleteTableModalVisible = false;
@@ -503,6 +514,9 @@ export default {
     },
     closeFindReplaceModal() {
       this.isFindReplaceModalVisible = false;
+      this.findMatches = []; // Clear all matches
+      this.currentMatchIndex = -1; // Reset current match index
+      this.findQuery = ""; // Clear the find query
     },
     applySearchFilter() {
       this.searchedTableData = this.tableData.filter((row) => {
@@ -528,6 +542,36 @@ export default {
         });
         this.closeFindReplaceModal();
       }
+    },
+    updateMatches(query) {
+      this.findMatches = [];
+      
+      if (!query.trim()) {
+        this.currentMatchIndex = 0;
+        return;
+      }
+
+      // Loop through table data and find matches
+      this.tableData.forEach((row, rowIndex) => {
+        Object.keys(row).forEach((key) => {
+          const value = row[key];
+          if (typeof value === "string" && value.includes(query)) {
+            this.findMatches.push({ rowIndex, key });
+          }
+        });
+      });
+
+      // Set the index to the first match (if any)
+      this.currentMatchIndex = this.findMatches.length > 0 ? 0 : -1;
+
+      // Highlight only the first match
+      this.scrollToMatch();
+    },
+
+    // Method to check if the cell is the current match
+    isCurrentMatch(rowIndex, key) {
+      const current = this.findMatches[this.currentMatchIndex];
+      return current && current.rowIndex === rowIndex && current.key === key;
     },
     findAll() {
       this.findMatches = [];
@@ -594,10 +638,6 @@ export default {
         (m) => m.rowIndex === rowIndex && m.key === key
       );
     },
-    isCurrentMatch(rowIndex, key) {
-      const match = this.findMatches[this.currentMatchIndex];
-      return match && match.rowIndex === rowIndex && match.key === key;
-    },
     filteredTableData() {
       this.filteredTableData = this.tableData.filter((row) => {
         return (
@@ -628,10 +668,10 @@ export default {
     getMatchIndex(index, key) {
       return `${index}-${key}`;
     },
-    isCurrentMatches(rowIndex, key) {
-      if (!this.findMatches.length) return false;
-      const current = this.findMatches[this.currentMatchIndex];
-      return current && current.rowIndex === rowIndex && current.key === key;
+    isMatched(rowIndex, key) {
+      return this.findMatches.some(
+        (match) => match.rowIndex === rowIndex && match.key === key
+      );
     },
     showDeleteModal(row) {
       this.rowToDelete = row;
@@ -656,7 +696,7 @@ export default {
       this.deleteSuccessMessage = true;
       setTimeout(() => {
         this.deleteSuccessMessage = false;
-      }, 3000); // hide after 3 seconds
+      }, 2000);
     },
     filterTableData() {
       this.searchedTableData = this.tableData.filter((row) => {
@@ -684,6 +724,11 @@ export default {
     },
     prevPage() {
       if (this.currentPage > 1) this.currentPage--;
+    },
+    saveEdit(index, key) {
+      // Save or validate the edited cell value if needed
+      console.log("Edited:", this.paginatedTableData[index][key]);
+      // Optionally sync to backend or parent state
     },
   },
   mounted() {
@@ -881,6 +926,8 @@ export default {
 
 select {
   appearance: none;
+  -moz-appearance: none; /* Firefox */
+  -webkit-appearance: none; /* Safari/Chrome */
   color: #8cb2c9;
   background-color: #fff;
   border: 1px solid #8cb2c9;
@@ -891,21 +938,25 @@ select {
   transition: border-color 0.3s ease;
   width: 100%;
   text-align: center;
+  text-align-last: center; /* fallback for other browsers */
 }
 
 select option {
-  display: block;
-  text-align: center !important;
-  text-align-last: center;
-  padding-left: 10px;
-  width: 100%;
-  direction: rtl;
+  padding: 6px;
 }
 
 select:focus {
   border-color: #007bff;
   outline: none;
   box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+.editable-cell {
+  width: 100%;
+  border: none;
+  background: transparent;
+  border-bottom: 1px dashed #ccc;
+  outline: none;
 }
 
 .action-button {
@@ -987,9 +1038,16 @@ select:focus {
 
 .alert-modal-button-icon,
 .alert-modal-button-sep {
-  margin: 0 4px 4px 0;
+  margin: 0 4px 0 0;
   padding: 0;
   font-size: 20px;
+  display: inline-block;
+  line-height: 1;
+}
+
+.alert-modal-button span {
+  display: inline-flex;
+  align-items: center;
 }
 
 .modal {

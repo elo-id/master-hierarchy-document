@@ -2,10 +2,10 @@
   <div class="home">
     <div class="buttons-container">
       <button @click="addNewTable" class="add-table-btn">
-        ✚ Add New Table
+        <img src="@/assets/add.png" class="save-icon">Add New Table
       </button>
       <button class="save-button" @click="isSaveModalVisible = true">
-        🗁 Save
+        <img src="@/assets/save.png" class="save-icon">Save
       </button>
     </div>
     <div v-for="(table, index) in tables" :key="index">
@@ -18,14 +18,14 @@
       </div>
       <div class="alert-modal-buttons">
         <button class="alert-modal-button" @click="proceedSave">
-          <h1 class="alert-modal-button-icon">🗹</h1>
-          <h1 class="alert-modal-button-sep">|</h1>
-          Proceed
+          <span class="alert-modal-button-icon">☑</span>
+          <span class="alert-modal-button-sep">|</span>
+          <span>Proceed</span>
         </button>
         <button class="alert-modal-button" @click="cancelSave">
-          <h1 class="alert-modal-button-icon">☒</h1>
-          <h1 class="alert-modal-button-sep">|</h1>
-          Cancel
+          <span class="alert-modal-button-icon">☒</span>
+          <span class="alert-modal-button-sep">|</span>
+          <span>Cancel</span>
         </button>
       </div>
     </div>
@@ -98,6 +98,9 @@ export default {
 }
 
 .add-table-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   padding: 10px 20px 12px 20px;
   background: none;
   color: #0064a0;
@@ -114,6 +117,9 @@ export default {
 }
 
 .save-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   padding: 10px 20px 12px 20px;
   background-color: #0064a0;
   color: white;
@@ -122,6 +128,11 @@ export default {
   cursor: pointer;
   font-size: 14px;
   font-weight: bold;
+}
+
+.save-icon {
+  width: 18px;  /* adjust as needed */
+  height: 18px;
 }
 
 .save-button:hover {
@@ -194,9 +205,16 @@ export default {
 
 .alert-modal-button-icon,
 .alert-modal-button-sep {
-  margin: 0 4px 4px 0;
+  margin: 0 4px 0 0;
   padding: 0;
   font-size: 20px;
+  display: inline-block;
+  line-height: 1;
+}
+
+.alert-modal-button span {
+  display: inline-flex;
+  align-items: center;
 }
 
 .save-success-toast {
