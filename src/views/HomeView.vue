@@ -2,7 +2,7 @@
   <div class="home">
     <div class="buttons-container">
       <button @click="addNewTable" class="add-table-btn">
-        <img src="@/assets/add.png" class="save-icon">Add New Table
+        <img src="@/assets/add.png" class="add-icon">Add New Table
       </button>
       <button class="save-button" @click="isSaveModalVisible = true">
         <img src="@/assets/save.png" class="save-icon">Save
@@ -18,12 +18,12 @@
       </div>
       <div class="alert-modal-buttons">
         <button class="alert-modal-button" @click="proceedSave">
-          <span class="alert-modal-button-icon">☑</span>
+          <span class="alert-modal-button-icon"><img src="@/assets/proceed.png" class="proceed-icon"></span>
           <span class="alert-modal-button-sep">|</span>
           <span>Proceed</span>
         </button>
         <button class="alert-modal-button" @click="cancelSave">
-          <span class="alert-modal-button-icon">☒</span>
+          <span class="alert-modal-button-icon"><img src="@/assets/cancel.png" class="cancel-icon"></span>
           <span class="alert-modal-button-sep">|</span>
           <span>Cancel</span>
         </button>
@@ -129,8 +129,8 @@ export default {
   font-weight: bold;
 }
 
-.save-icon {
-  width: 18px;  /* adjust as needed */
+.add-icon, .save-icon, .proceed-icon, .cancel-icon {
+  width: 18px;
   height: 18px;
 }
 

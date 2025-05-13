@@ -53,12 +53,12 @@
       </div>
       <div class="alert-modal-buttons">
         <button class="alert-modal-button" @click="proceedDelete">
-          <span class="alert-modal-button-icon">☑</span>
+          <span class="alert-modal-button-icon"><img src="@/assets/proceed.png" class="proceed-icon"></span>
           <span class="alert-modal-button-sep">|</span>
           <span>Proceed</span>
         </button>
         <button class="alert-modal-button" @click="cancelDelete">
-          <span class="alert-modal-button-icon">☒</span>
+          <span class="alert-modal-button-icon"><img src="@/assets/cancel.png" class="cancel-icon"></span>
           <span class="alert-modal-button-sep">|</span>
           <span>Cancel</span>
         </button>
@@ -72,12 +72,12 @@
       </div>
       <div class="alert-modal-buttons">
         <button class="alert-modal-button" @click="removeRow(row)">
-          <span class="alert-modal-button-icon">☑</span>
+          <span class="alert-modal-button-icon"><img src="@/assets/proceed.png" class="proceed-icon"></span>
           <span class="alert-modal-button-sep">|</span>
           <span>Proceed</span>
         </button>
         <button class="alert-modal-button" @click="cancelDelete">
-          <span class="alert-modal-button-icon">☒</span>
+          <span class="alert-modal-button-icon"><img src="@/assets/cancel.png" class="cancel-icon"></span>
           <span class="alert-modal-button-sep">|</span>
           <span>Cancel</span>
         </button>
@@ -1043,6 +1043,11 @@ select:focus {
   font-size: 20px;
   display: inline-block;
   line-height: 1;
+}
+
+.proceed-icon, .cancel-icon {
+  width: 18px;
+  height: 18px;
 }
 
 .alert-modal-button span {
