@@ -316,7 +316,12 @@
                   ),
                 }"
               >
-                {{ value }}
+                <!-- {{ value }} -->
+                <input
+                  v-model="paginatedTableData[index][key]"
+                  class="editable-cell"
+                  @blur="saveEdit(index, key)"
+                />
               </td>
               <td>
                 <button @click="showDeleteModal(row)" class="action-button">
@@ -685,6 +690,11 @@ export default {
     prevPage() {
       if (this.currentPage > 1) this.currentPage--;
     },
+    saveEdit(index, key) {
+      // Save or validate the edited cell value if needed
+      console.log("Edited:", this.paginatedTableData[index][key]);
+      // Optionally sync to backend or parent state
+    },
   },
   mounted() {
     this.searchedTableData = this.tableData;
@@ -906,6 +916,14 @@ select:focus {
   border-color: #007bff;
   outline: none;
   box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+.editable-cell {
+  width: 100%;
+  border: none;
+  background: transparent;
+  border-bottom: 1px dashed #ccc;
+  outline: none;
 }
 
 .action-button {
