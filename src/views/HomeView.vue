@@ -18,12 +18,12 @@
       </div>
       <div class="alert-modal-buttons">
         <button class="alert-modal-button" @click="proceedSave">
-          <span class="alert-modal-button-icon">☑</span>
+          <span class="alert-modal-button-icon"><img src="@/assets/proceed.png" class="proceed-icon"></span>
           <span class="alert-modal-button-sep">|</span>
           <span>Proceed</span>
         </button>
         <button class="alert-modal-button" @click="cancelSave">
-          <span class="alert-modal-button-icon">☒</span>
+          <span class="alert-modal-button-icon"><img src="@/assets/cancel.png" class="cancel-icon"></span>
           <span class="alert-modal-button-sep">|</span>
           <span>Cancel</span>
         </button>
@@ -130,7 +130,7 @@ export default {
   font-weight: bold;
 }
 
-.save-icon {
+.add-icon, .save-icon, .proceed-icon, .cancel-icon {
   width: 18px;  /* adjust as needed */
   height: 18px;
 }
